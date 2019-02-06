@@ -18,3 +18,8 @@ def create(request):
     website = WebSite(link_title=request.POST['link_title'])
     website.save()
     return redirect('/')
+
+def delete(request, id):
+    website = WebSite.objects.get(id=id)
+    website.delete()
+    return redirect('/')

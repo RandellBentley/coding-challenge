@@ -24,7 +24,7 @@
         <td>{{n.link_title}}</td>
       <td>{{n.clicks}}</td>
         <td>Edit</td>
-        <td>Delete</td>
+        <td><a class="btn btn-sm btn-danger" href="delete/{{ n.id }}"><span class="glyphicon glyphicon-trash">Delete</a></td>
       </tr>
 {% endfor %}
 </tbody>
