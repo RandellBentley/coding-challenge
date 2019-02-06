@@ -40,7 +40,6 @@ def update(request, id):
     website.clicks = request.POST['clicks']
     website.save()
     return redirect('/')
-    #return redirect('linkApp/index.html')
 
 def edit(request, id):
     websites = WebSite.objects.get(id=id)
