@@ -1,0 +1,25 @@
+{% extends "linkApp/header.html" %}
+{% block content %}
+<p>Add a link: </p>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Link</th>
+        <th>Clicks</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for n in link_referral_list %}
+      <tr>
+        <td>{{n.link_title}}</td>
+      <td>{{n.clicks}}</td>
+        <td>Edit</td>
+        <td>Delete</td>
+      </tr>
+{% endfor %}
+</tbody>
+</table>
+
+{% endblock %}
