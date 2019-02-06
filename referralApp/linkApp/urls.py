@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, re_path
 
 from . import views
 
@@ -7,4 +7,7 @@ urlpatterns = [
     path('', views.linkList, name='linkList'),
     path('create', views.create, name='create'),
     path('delete/<int:id>', views.delete, name='delete'),
+    path('edit/<int:id>', views.edit, name='edit'),
+    re_path('edit/update/<id>', views.update, name='update'),
+    re_path('landing/<?Plink_title>', views.landingLink, name="landingLink"),
 ]

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.template import loader
 from linkApp.models import WebSite
@@ -23,3 +23,18 @@ def delete(request, id):
     website = WebSite.objects.get(id=id)
     website.delete()
     return redirect('/')
+
+def landingLink(request, id):
+    website = get_object_or_404(WebSite, pk=id)
+
+def update(request, id):
+    website = WebSite.objects.get(id=id)
+    website.link_title = request.POST['link_title']
+    website.clicks = request.POST['clicks']
+    website.save()
+    return redirect('linkApp/index.html')
+
+def edit(request, id):
+    websites = WebSite.objects.get(id=id)
+    context = {'websites': websites}
+    return render(request, 'linkApp/edit.html', context)
