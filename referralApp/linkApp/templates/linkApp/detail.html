@@ -1,0 +1,5 @@
+<h1>{{ website.link_title }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+    <p>Here is the current number of visits for {{ website.link_title }}: {{ website.clicks }}</p>

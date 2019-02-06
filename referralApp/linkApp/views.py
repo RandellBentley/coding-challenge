@@ -24,8 +24,15 @@ def delete(request, id):
     website.delete()
     return redirect('/')
 
-def landingLink(request, id):
-    website = get_object_or_404(WebSite, pk=id)
+def landingLink(request, site_name):
+    website = WebSite.objects.get(link_title=site_name)
+    template = loader.get_template('linkApp/detail.html')
+    website.clicks += 1
+    website.save()
+    context = {
+        'website': website,
+    }
+    return HttpResponse(template.render(context, request))
 
 def update(request, id):
     website = WebSite.objects.get(id=id)

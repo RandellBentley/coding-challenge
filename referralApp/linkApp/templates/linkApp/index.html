@@ -21,7 +21,7 @@
     <tbody>
     {% for n in link_referral_list %}
       <tr>
-        <td>{{n.link_title}}</td>
+        <td><a href="landing/{{ n.link_title }}">{{n.link_title}}</a></td>
       <td>{{n.clicks}}</td>
         <td><a class="btn btn-sm btn-warning" href="edit/{{ n.id }}"><span class="glyphicon glyphicon-edit">Edit</a></td>
         <td><a class="btn btn-sm btn-danger" href="delete/{{ n.id }}"><span class="glyphicon glyphicon-trash">Delete</a></td>
