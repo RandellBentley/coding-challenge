@@ -7,7 +7,7 @@ def index(request):
     return HttpResponse("<p>Welcome to the home page</p>")
 
 def linkList(request):
-    link_referral_list = WebSite.objects.order_by('clicks')[:5]
+    link_referral_list = WebSite.objects.order_by('clicks')
     template = loader.get_template('linkApp/index.html')
     context = {
         'link_referral_list': link_referral_list,
@@ -32,7 +32,8 @@ def update(request, id):
     website.link_title = request.POST['link_title']
     website.clicks = request.POST['clicks']
     website.save()
-    return redirect('linkApp/index.html')
+    return redirect('/')
+    #return redirect('linkApp/index.html')
 
 def edit(request, id):
     websites = WebSite.objects.get(id=id)
