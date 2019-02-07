@@ -1,7 +1,9 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, render_to_response
 from django.http import HttpResponse
 from django.template import loader
 from linkApp.models import WebSite
+from django.db import IntegrityError
+
 
 def index(request):
     return HttpResponse("<p>Welcome to the home page</p>")
@@ -15,9 +17,16 @@ def linkList(request):
     return HttpResponse(template.render(context, request))
 
 def create(request):
-    website = WebSite(link_title=request.POST['link_title'])
-    website.save()
-    return redirect('/')
+    try:
+        website = WebSite(link_title=request.POST['link_title'])
+        website.save()
+    except IntegrityError as e:
+        link_referral_list = WebSite.objects.order_by('clicks')
+        return render_to_response("linkApp/index.html", {"message": 'A site already exists with this name',
+                                                            "link_referral_list": link_referral_list})
+
+    else:
+        return redirect('/')
 
 def delete(request, id):
     website = WebSite.objects.get(id=id)
