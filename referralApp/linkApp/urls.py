@@ -4,6 +4,10 @@ from . import views
 from linkApp.views import WebSiteViewSet
 
 app_name = 'linkApp'
+
+router = routers.DefaultRouter()
+router.register(r'websites', WebSiteViewSet)
+
 urlpatterns = [
     path('', views.linkList, name='linkList'),
     path('create', views.create, name='create'),
@@ -13,8 +17,5 @@ urlpatterns = [
     path('landing/<site_name>', views.landingLink, name="landingLink"),
 ]
 
-router = routers.DefaultRouter()
-router.register(r'websites', WebSiteViewSet)
 
-
-urlpatterns = router.urls
+#urlpatterns = router.urls
