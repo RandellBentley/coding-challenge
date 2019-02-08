@@ -1,1 +1,1 @@
-web: gunicorn referralApp:app
+web: gunicorn referralApp.wsgi
