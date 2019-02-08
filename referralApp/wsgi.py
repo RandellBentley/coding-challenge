@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'referralApp.referralApp.settings')
-
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'referralApp.settings')
+print("Here is what is happening right before the get wsgi portion of the wsgi file")
 application = get_wsgi_application()

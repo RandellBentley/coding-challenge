@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '@udqo16rb**j6dlc)rvq^+y+s*dsz0-6k*=zuz#2+&li%ww&f8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'referralApp.referralApp.wsgi.application'
+WSGI_APPLICATION = 'referralApp.wsgi.application'
 
 
 # Database
