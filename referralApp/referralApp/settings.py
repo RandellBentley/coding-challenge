@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'referralApp.wsgi.application'
+WSGI_APPLICATION = 'referralApp.referralApp.wsgi.application'
 
 
 # Database
