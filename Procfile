@@ -1,1 +1,1 @@
-web: gunicorn referralApp.referralApp.wsgi
+web: gunicorn referralApp.referralApp.wsgi --log-file - 
